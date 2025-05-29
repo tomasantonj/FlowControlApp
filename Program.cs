@@ -12,10 +12,12 @@ namespace FlowControlApp
             Console.WriteLine("Välj ett alternativ:");
             Console.WriteLine("1. Sök information om individuella biljettpriser");
             Console.WriteLine("2. Sök information om biljettpriser för sällskap");
-            Console.WriteLine("Välj 1 eller 2. ");
+            Console.WriteLine("");
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("Vill du istället få tillgång till coola funktioner som programmet erbjuder?");
-            Console.WriteLine("Välj då 3 eller 4");
+            Console.WriteLine("Välj då 3 eller 4¨: ");
+            Console.WriteLine("3. Visa ett meddelande 10 gånger");
+            Console.WriteLine("4. Dela upp en mening i ord och visa var tredje ord i versaler");
             string choice = Console.ReadLine();
 
             // create an infinite loop to keep the application running until the user chooses to exit
@@ -64,15 +66,12 @@ namespace FlowControlApp
                         Console.WriteLine("Du har angett " + groupSizeInput + " personer i sällskapet.");
 
                         // For each person in the group, create a list and ask for their ages
-                        Console.WriteLine(
-                            "Ange åldrarna för varje person i sällskapet, separerade med kommatecken:");
-                        Console.WriteLine(
-                            "Exempel: 18, 25, 30, 65");
+                        Console.WriteLine("Ange åldrarna för varje person i sällskapet, separerade med kommatecken:");
+                        Console.WriteLine("Exempel: 18, 25, 30, 65");
                         Console.WriteLine("Om du inte vill ange ålder för en person, skriv 'n/a' för den personen.");
 
                         string agesInput = Console.ReadLine();
-                        string[] agesArray = agesInput.Split(',')
-                            .Select(age => age.Trim()).ToArray();
+                        string[] agesArray = agesInput.Split(',').Select(age => age.Trim()).ToArray();
 
                         // Convert the ages to integers, using 120 as default for 'n/a'
                         for (int i = 0; i < agesArray.Length; i++)
@@ -105,12 +104,6 @@ namespace FlowControlApp
                         Console.WriteLine("Totalt pris för sällskapet: " + totalPrice + " kr");
                         Console.WriteLine("Totalt antal personer i sällskapet: " + agesArray.Length);
                         Console.WriteLine("Du har angett följande åldrar för sällskapet: " + string.Join(", ", agesArray));
-                        Console.WriteLine("Nu kommer vi att beräkna biljettpriserna baserat på de angivna åldrarna.");
-                        Console.WriteLine("För att beräkna biljettpriserna, kommer vi att använda följande regler:");
-                        Console.WriteLine("Ungdom (0-20 år): 80 kr per person");
-                        Console.WriteLine("Vuxen (21-64 år): 120 kr per person");
-                        Console.WriteLine("Senior (65 år och äldre): 90 kr per person");
-                        Console.WriteLine("Om du inte anger ålder för en person, kommer vi att anta att personen är vuxen (120 kr).");
                         break; // Exit the application
                     
                     
@@ -133,7 +126,7 @@ namespace FlowControlApp
                         {
                             Console.Write(message + " ");
                         }
-
+                        Console.WriteLine(); // Add a new line after displaying the message 10 times
 
                         break;
                     case "4":
@@ -160,6 +153,7 @@ namespace FlowControlApp
                             {
                                 Console.WriteLine(words[i].ToUpper());
                             }
+                        Console.WriteLine(); // Add a new line after displaying the words
 
                         break;
 
@@ -174,10 +168,12 @@ namespace FlowControlApp
                 Console.WriteLine("Välj ett alternativ:");
                 Console.WriteLine("1. Sök information om individuella biljettpriser");
                 Console.WriteLine("2. Sök information om biljettpriser för sällskap");
-                Console.WriteLine("Välj 1 eller 2. ");
+                Console.WriteLine("");
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("Vill du istället få tillgång till coola funktioner som programmet erbjuder?");
-                Console.WriteLine("Välj då 3 eller 4");
+                Console.WriteLine("Välj då 3 eller 4¨: ");
+                Console.WriteLine("3. Visa ett meddelande 10 gånger");
+                Console.WriteLine("4. Dela upp en mening i ord och visa var tredje ord i versaler");
                 choice = Console.ReadLine();
             }
         }
