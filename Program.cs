@@ -12,8 +12,8 @@ namespace FlowControlApp
             Console.WriteLine("Välj ett alternativ:");
             Console.WriteLine("1. Sök information om individuella biljettpriser");
             Console.WriteLine("2. Sök information om biljettpriser för sällskap");
-            Console.Write("Välj 1 eller 2. ");
-            Console.Write("Välj 1 eller 2. ");
+            Console.WriteLine("Välj 1 eller 2. ");
+            Console.WriteLine("----------------------------------------");
             Console.WriteLine("Vill du istället få tillgång till coola funktioner som programmet erbjuder?");
             Console.WriteLine("Välj då 3 eller 4");
             string choice = Console.ReadLine();
@@ -102,7 +102,7 @@ namespace FlowControlApp
                         }
 
                         // Display the total price for the group
-                        Console.WriteLine("Totalt pris för sällskapet: " + totalPrice + " kr")
+                        Console.WriteLine("Totalt pris för sällskapet: " + totalPrice + " kr");
                         Console.WriteLine("Totalt antal personer i sällskapet: " + agesArray.Length);
                         Console.WriteLine("Du har angett följande åldrar för sällskapet: " + string.Join(", ", agesArray));
                         Console.WriteLine("Nu kommer vi att beräkna biljettpriserna baserat på de angivna åldrarna.");
@@ -137,10 +137,34 @@ namespace FlowControlApp
 
                         break;
                     case "4":
+                        // logic that takes user input, stores it in a var and then split words in the string on every space
+                        // and then displays each word on a new line
+                        Console.WriteLine("Du har valt att dela upp en mening i ord.");
+                        Console.Write("Var god och ange en mening: ");
+                        var sentence = Console.ReadLine();
+                        Console.WriteLine("----------------------------------------");
+                        Console.WriteLine("Mening: " + sentence);
+                        // check if sentence has atleast 3 words, if not, ask for  new sentence
+                        if (string.IsNullOrWhiteSpace(sentence) || sentence.Split(' ').Length < 3)
+                        {
+                            Console.WriteLine("Mening måste innehålla minst tre ord. Försök igen.");
+                            continue; // Skip to the next iteration of the loop
+                        }
 
+                        // Split the sentence into words then iterate over the words, display each 3rd word in uppercase
+                        string[] words = sentence.Split(' ');
+
+                        Console.WriteLine("----------------------------------------");
+                            Console.WriteLine("Var tredje ord i meningen i versaler: ");
+                            for (int i = 2; i < words.Length; i += 3) // Start from index 2 (3rd word) and increment by 3
+                            {
+                                Console.WriteLine(words[i].ToUpper());
+                            }
+
+                        break;
 
                     default:
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("Var god välj alternativ 1-2 för biopriser och 3-4 för roliga funktioner :)");
                         break;
                 }
 
@@ -150,7 +174,8 @@ namespace FlowControlApp
                 Console.WriteLine("Välj ett alternativ:");
                 Console.WriteLine("1. Sök information om individuella biljettpriser");
                 Console.WriteLine("2. Sök information om biljettpriser för sällskap");
-                Console.Write("Välj 1 eller 2. ");
+                Console.WriteLine("Välj 1 eller 2. ");
+                Console.WriteLine("----------------------------------------");
                 Console.WriteLine("Vill du istället få tillgång till coola funktioner som programmet erbjuder?");
                 Console.WriteLine("Välj då 3 eller 4");
                 choice = Console.ReadLine();
